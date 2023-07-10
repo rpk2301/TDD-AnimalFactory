@@ -1,10 +1,12 @@
 package rocks.zipcodewilmington;
 
+import org.junit.Assert;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Dog;
 import rocks.zipcodewilmington.animals.animal_creation.AnimalFactory;
 import rocks.zipcodewilmington.animals.animal_storage.DogHouse;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -31,4 +33,28 @@ public class DogHouseTest {
         // Then
         DogHouse.getNumberOfDogs();
     }
+
+
+    @Test
+    public void  testAdd()
+    {
+
+        //Given
+         DogHouse expected = new DogHouse();
+        Dog chad = new Dog("",null,234);
+        //When
+        expected.add(chad);
+
+
+
+
+        //Then
+       // Assert.assertEquals(expected,);
+
+
+
+    }
+
+
+
 }

@@ -2,7 +2,10 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Cat;
+import rocks.zipcodewilmington.animals.Dog;
+import rocks.zipcodewilmington.animals.Mammal;
 
 import java.util.Date;
 
@@ -40,4 +43,86 @@ public class CatTest {
         Assert.assertEquals(givenId, retrievedId);
     }
 
+@Test
+public void setNameTest()
+    {
+        //Given
+        String expectedname = "Pablo";
+        String actualname = "Frank";
+        //When
+        Mammal cat = new Cat(actualname,new Date(),4312);
+        cat.setName(expectedname);
+        //Then
+        Assert.assertEquals(cat.getName(),expectedname);
+    }
+    @Test
+    public void setBirthDate()
+    {
+        //Given
+        Date newdate = new Date();
+        //When
+        Cat cat = new Cat("Name",null,6543);
+        //Then
+        cat.setBirthDate(newdate);
+        Date actual = cat.getBirthDate();
+        Assert.assertEquals(newdate,actual);
+    }
+
+
+    @Test
+    public void testSpeak() {
+        //Given
+        String Expected = "meow!";
+
+        //When
+        Cat cat = new Cat("Ralph", new Date(), 3894);
+
+        //Then
+        String actual = cat.speak();
+        Assert.assertEquals(Expected, actual);
+
+    }
+
+    @Test
+    public void testeat() {
+        //Given
+        Food expected = new Food();
+        //When
+        Cat cat = new Cat("Ralph", new Date(), 3894);
+        //Then
+        cat.eat(expected);
+        Food Actual = cat.getEatenMeals().get(0);
+        Assert.assertEquals(expected, Actual);
+
+    }
+
+
+    @Test
+    public void getID()
+    {
+        //Given
+       int expected=12;
+        //When
+        Mammal cat = new Cat("j",new Date(),12);
+       int  actual= cat.getId();
+        //Then
+        Assert.assertEquals(actual,expected);
+    }
+@Test
+    public void isMammal()
+{
+    Cat cat = new Cat("",null,9);
+
+    Assert.assertTrue(cat instanceof Mammal);
+
+}
+
+
+@Test
+    public void isAnimal()
+{
+    Cat cat = new Cat("",null,9);
+
+    Assert.assertTrue(cat instanceof Animal);
+}
 }
